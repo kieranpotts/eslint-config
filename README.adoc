@@ -1,0 +1,6 @@
+= `@hacksjs/eslint-config`
+
+This repository encapsulates the code and configuration for a shareable ESLint configuration that is used to enforce consistent coding styles and conventions across the Hacks.js project.
+
+''''
+Copyright © Kieran Potts and contributors
