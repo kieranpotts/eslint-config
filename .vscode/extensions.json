@@ -1,18 +1,17 @@
 {
   "recommendations": [
 
-    // AsciiDoc – Provides language support for AsciiDoc.
+    // AsciiDoc — Provides language support for AsciiDoc.
     "asciidoctor.asciidoctor-vscode",
 
-    // EditorConfig – .editorconfig file support.
+    // EditorConfig — .editorconfig file support.
     "editorconfig.editorconfig",
 
-    // ESLint – Integrates the ESLint tool.
+    // ESLint — Integrates the ESLint tool.
     "dbaeumer.vscode-eslint",
 
-    // TODO: Deprecate this, required by @nirvarnia/stylelint-config
-    // Stylelint – Official stylelint extension, for linting and formatting of CSS code.
-    "stylelint.vscode-stylelint",
+    // Jest — Jest integration.
+    "orta.vscode-jest"
 
   ]
 }
