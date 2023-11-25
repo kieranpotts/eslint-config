@@ -17,7 +17,6 @@ const max_executable_lines_per_function = 100
 const builtin = Object.freeze({
 
   /*
-
   The following resources may be used as references for all available rules:
 
   https://eslint.org/docs/rules/
@@ -30,7 +29,6 @@ const builtin = Object.freeze({
 
   https://standardjs.com/
   https://github.com/standard/eslint-config-standard/blob/master/src/index.ts
-
   */
 
   'accessor-pairs': [
@@ -316,13 +314,6 @@ const builtin = Object.freeze({
       },
       'ignoreComments': false,
       'ignoredNodes': [
-        /*
-        AST node types are listed in the ESTree specification:
-        https://github.com/estree/estree
-
-        See also AST Explorer to examine code snippets:
-        https://astexplorer.net/
-        */
         'ConditionalExpression',
         'TemplateLiteral *',
         'JSXElement',
@@ -420,16 +411,19 @@ const builtin = Object.freeze({
     },
   ],
   'logical-assignment-operators': 'off',
-  'max-classes-per-file': 'off',
+  'max-classes-per-file': [
+    'warn',
+    {
+      'ignoreExpressions': true,
+      'max': 2,
+    },
+  ],
   'max-depth': 'off',
   'max-len': [
     'off',
     {
-      /* Hard limit: */
       'code': max_code_line_length,
       'comments': max_comment_line_length,
-
-      /* Skip this check for lines containing long URLs: */
       'ignoreUrls': true,
     },
   ],
@@ -634,7 +628,6 @@ const builtin = Object.freeze({
     {
       'allowSamePrecedence': true,
       'groups': [
-        /* Arithmetic operators */
         [
           '+',
           '-',
@@ -643,7 +636,6 @@ const builtin = Object.freeze({
           '%',
           '**',
         ],
-        /* Bitwise operators */
         [
           '&',
           '|',
@@ -653,7 +645,6 @@ const builtin = Object.freeze({
           '>>',
           '>>>',
         ],
-        /* Comparison operators */
         [
           '==',
           '!=',
@@ -664,21 +655,17 @@ const builtin = Object.freeze({
           '<',
           '<=',
         ],
-        /* Logical operators */
         [
           '&&',
           '||',
         ],
-        /* Coalesce operator */
         // [
         //   '??',
         // ],
-        /* Relational operators */
         [
           'in',
           'instanceof',
         ],
-        /* Ternary operator */
         // [
         //   '?:',
         // ],
@@ -996,10 +983,6 @@ const builtin = Object.freeze({
   'padding-line-between-statements': [
     'warn',
     /* eslint-disable array-bracket-newline, array-element-newline, sort-keys */
-    /*
-    Empty lines before and after directive prologues, never between
-    multiple consecutive directives.
-    */
     {
       'blankLine': 'always',
       'prev': '*',
@@ -1015,10 +998,6 @@ const builtin = Object.freeze({
       'prev': 'directive',
       'next': 'directive',
     },
-    /*
-    Empty lines before and after variable declarations, with
-    optional empty lines between multiple consecutive declarations.
-    */
     {
       'blankLine': 'always',
       'prev': '*',
@@ -1034,43 +1013,36 @@ const builtin = Object.freeze({
       'prev': ['const', 'let', 'var'],
       'next': ['const', 'let', 'var'],
     },
-    /* Empty line before every `case` statement. */
     {
       'blankLine': 'always',
       'prev': '*',
       'next': 'case',
     },
-    /* Empty line before every `default` statement. */
     {
       'blankLine': 'always',
       'prev': '*',
       'next': 'default',
     },
-    /* Empty line before every `continue` statement. */
     {
       'blankLine': 'always',
       'prev': '*',
       'next': 'continue',
     },
-    /* Empty line before every `break` statement. */
     {
       'blankLine': 'always',
       'prev': '*',
       'next': 'break',
     },
-    /* Empty line before every `return` statement. */
     {
       'blankLine': 'always',
       'prev': '*',
       'next': 'return',
     },
-    /* Empty line before every `throw` statement. */
     {
       'blankLine': 'always',
       'prev': '*',
       'next': 'throw',
     },
-    /* Before and after multiline expressions. */
     {
       'blankLine': 'always',
       'prev': '*',
@@ -1081,10 +1053,6 @@ const builtin = Object.freeze({
       'prev': 'multiline-expression',
       'next': '*',
     },
-    /*
-    Before and after block-like statements (if, while, try, etc)
-    when those statements are written over multiple lines.
-    */
     {
       'blankLine': 'always',
       'prev': '*',
@@ -1095,10 +1063,6 @@ const builtin = Object.freeze({
       'prev': 'multiline-block-like',
       'next': '*',
     },
-    /*
-    Before and after import statements, with optional empty lines
-    between consecutive imports…
-    */
     {
       'blankLine': 'always',
       'prev': '*',
@@ -1114,7 +1078,6 @@ const builtin = Object.freeze({
       'prev': 'import',
       'next': 'import',
     },
-    /* … Same for CommonJS imports. */
     {
       'blankLine': 'always',
       'prev': '*',
@@ -1130,10 +1093,6 @@ const builtin = Object.freeze({
       'prev': 'cjs-import',
       'next': 'cjs-import',
     },
-    /*
-    Before and after export statements, with optional empty lines
-    between consecutive exports…
-    */
     {
       'blankLine': 'always',
       'prev': '*',
@@ -1149,7 +1108,6 @@ const builtin = Object.freeze({
       'prev': 'export',
       'next': 'export',
     },
-    /* … Same for CommonJS exports. */
     {
       'blankLine': 'always',
       'prev': '*',
@@ -1165,10 +1123,6 @@ const builtin = Object.freeze({
       'prev': 'cjs-export',
       'next': 'cjs-export',
     },
-    /*
-    Empty lines before and after debugger statement, but never between
-    multiple consecutive directives.
-    */
     {
       'blankLine': 'always',
       'prev': '*',

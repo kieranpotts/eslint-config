@@ -64,6 +64,12 @@ npm install eslint@^8.21.0 --save-dev
 yarn add eslint@^8.21.0 --dev
 ```
 
+#### OPTIONAL dependencies
+
+If your source code is transformed by Babel, you will need to install `@babel/eslint-parser` and plug this in to your ESLint config (see usage instructions, below). This will transform your source code, for example polyfilling experimental ECMAScript features, before statically analyzing it.
+
+It is also recommended to install the `globals` package, which will allow easy configuration of global identifiers enabled in your JavaScript runtime environment.
+
 ## Usage
 
 To use this ESLint configuration, you are REQUIRED to use ESLint's new ["flat file" configuration format](https://eslint.org/docs/latest/use/configure/configuration-files-new), which is enabled via a file called `eslint.config.js`.
@@ -74,20 +80,33 @@ To use this ESLint configuration, you are REQUIRED to use ESLint's new ["flat fi
 Use the following configuration as a template for your project's `eslint.config.js`. For more detailed instructions, see [ESLint's own documentation on using predefined configurations](https://eslint.org/docs/latest/use/configure/configuration-files-new#using-predefined-configurations).
 
 ```js
+import globals from 'globals'
+import babelParser from '@babel/eslint-parser'
 import { rules } from "@hacksjs/eslint-config"
 
 export default [
   {
-
-    files: [
+    'files': [
       '**/*.js'
-      ],
+    ],
 
-    // Include the rest of your ESLint configuration here, including
-    // any custom parsers and language options. See:
-    // https://eslint.org/docs/latest/use/configure/configuration-files-new
+    /*
 
-    rules: {
+    Include the rest of your ESLint configuration here, including
+    any custom parsers and language options. See:
+    https://eslint.org/docs/latest/use/configure/configuration-files-new
+
+    */
+
+    'languageOptions': {
+      'globals': {
+        ...globals.node,
+      },
+      'parser': babelParser,
+      'sourceType': 'module',
+    },
+
+    'rules': {
       ...rules.builtin,  // REQUIRED
     },
 
@@ -99,7 +118,7 @@ Of course, you MAY override and extend the imported rules, which you can do like
 
 ```js
 {
-  rules: {
+  'rules': {
     ...rules.builtin,
     'no-unused-vars': 'warn',
   },

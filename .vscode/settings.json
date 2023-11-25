@@ -65,4 +65,16 @@
   "eslint.format.enable": true,
   "eslint.validate": ["javascript", "typescript"],
 
+  // Settings for the Jest extension.
+  // https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest
+
+  // This is the command used to kick off tests in the terminal. The vscode-jest
+  // extension will pass additional options to this command at runtime, so we
+  // must append "--" to the "npm run" command to ensure the injected options
+  // get forwarded tothe "jest" command.
+  //
+  // https://github.com/jest-community/vscode-jest#jestcommandline
+
+  "jest.jestCommandLine": "npm run test -- ",
+
 }
