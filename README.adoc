@@ -1,6 +1,20 @@
 = `@hacksjs/eslint-config`
 
-This repository encapsulates the code and configuration for a shareable ESLint configuration that is used to enforce consistent coding styles and conventions across the Hacks.js project.
+This repository encapsulates the code and configuration for an ESLint configuration that is used to enforce consistent coding styles and conventions across the Hacks.js project. The configuration is shared with the wider community for the benefit of other projects that may wish to adopt the same default constraints.
+
+////
+
+== Documentation
+
+The following documentation covers the development and maintenance of the packages built from this code repository. APIs and usage instructions are documented in the READMEs of each package, which are distributed via the https://www.npmjs.com/search?q=%40kieranpotts[NPM registry].
+
+TODO: Add docs on using `npm add link:` to test config updates before shipping them.
+
+TODO: Write docs on `npm publish`.
+
+TODO: Write docs on source control workflow.
+
+////
 
 ''''
-Copyright © Kieran Potts and contributors
+© Kieran Potts and contributors, link:./LICENSE.txt[MIT license]
