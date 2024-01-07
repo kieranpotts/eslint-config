@@ -7,6 +7,13 @@ the same coding standards.
 https://eslint.org/docs/latest/use/configure/configuration-files-new
 */
 
+// import babelParser from '@babel/eslint-parser'
+
+// import import_plugin from 'eslint-plugin-import'
+// import node_plugin from 'eslint-plugin-n'
+// import promise_plugin from 'eslint-plugin-promise'
+// import security_plugin from 'eslint-plugin-security'
+
 import globals from 'globals'
 
 import { rules } from './src/lib/index.js'
@@ -20,11 +27,32 @@ const src_files = {
     'globals': {
       ...globals.node,
     },
+    // 'parser': babelParser,
     'sourceType': 'module',
   },
+  // plugins: {
+  //   'import': import_plugin,
+  //   'n': node_plugin,
+  //   'promise': promise_plugin,
+  //   'security': security_plugin,
+  // },
   'rules': {
     ...rules.builtin,
+    // ...rules.imports,
+    // ...rules.node,
+    // ...rules.promises,
+    // ...rules.security,
   },
+  // TODO: Install `eslint-import-resolver-node` as `debDependency`.
+  // settings: {
+  //   'import/resolver': {
+  //     node: {
+  //       'extensions': [
+  //         '.js',
+  //       ],
+  //     },
+  //   },
+  // },
 }
 
 /** @type {import("eslint").Linter.FlatConfig} */

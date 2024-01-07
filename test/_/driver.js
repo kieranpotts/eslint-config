@@ -15,7 +15,21 @@ import { resolve as resolvePath } from 'node:path'
 // eslint-disable-next-line id-match
 import { ESLint } from 'eslint'
 
+// // @ts-ignore
+// import { rules as import_rules, configs as import_config } from 'eslint-plugin-import'
+// // @ts-ignore
+// import node_plugin from 'eslint-plugin-n'
+// // @ts-ignore
+// import promise_plugin from 'eslint-plugin-promise'
+// // @ts-ignore
+// import security_plugin from 'eslint-plugin-security'
+
 import { rules } from '../../src/lib/index.js'
+
+// const import_plugin = {
+//   config: import_config,
+//   rules: import_rules,
+// }
 
 /** @typedef {import("eslint").ESLint.Options} ESLintOptions */
 /** @typedef {import("eslint").Linter.Config} LinterConfig */
@@ -44,10 +58,20 @@ const eslint_config = {
     'ecmaVersion': 'latest',
     'sourceType': 'module',
   },
+  // plugins: [
+  //   // 'eslint-plugin-import',
+  //   // 'eslint-plugin-node',
+  //   // 'eslint-plugin-promise',
+  //   // 'eslint-plugin-security',
+  // ],
   'root': true,
   // @ts-ignore - Type error but configuration looks correct.
   'rules': {
     ...rules.builtin,
+    // ...rules.imports,
+    // ...rules.node,
+    // ...rules.promises,
+    // ...rules.security,
   },
 }
 
@@ -80,6 +104,20 @@ const lint = async (file_path) => {
   /** @type {ESLintOptions} */
   const config = {
     'overrideConfig': eslint_config,
+    // plugins: {
+    //   // Type errors are showing up for plugins, but this seems to be due
+    //   // to an inconsistency in the type definition for the `meta.type` field
+    //   // for {ESLintOptions.rules} and {Plugin.rules}.
+    //
+    //   // // @ts-ignore
+    //   // 'eslint-plugin-import': import_plugin,
+    //   // // @ts-ignore
+    //   // 'eslint-plugin-n': node_plugin,
+    //   // // @ts-ignore
+    //   // 'eslint-plugin-promise': promise_plugin,
+    //   // // @ts-ignore
+    //   // 'eslint-plugin-security': security_plugin,
+    // },
     'useEslintrc': false,
   }
 
