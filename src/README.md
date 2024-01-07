@@ -1,15 +1,15 @@
-# `@hacksjs/eslint-config`
+# @hacksjs/eslint-config
 
 This is a shareable ESLint configuration for JavaScript and TypeScript projects.
 
 This is used to enforce consistent coding styles and conventions across the Hacks.js project. Our ESLint configuration is shared with the wider community for the benefit of other projects that may wish to adopt the same default constraints.
 
-The Hacks.js coding style is loosely based on the [Standard Style](https://standardjs.com/), which itself embraces the prevailing coding conventions in the JavaScript community. A terse, clean coding style is encouraged, free of unnecessary semi-colons to terminate statements, preferring arrow function expressions, and two spaces for indentation.
+The Hacks.js coding style is loosely based on the [Standard Style](https://standardjs.com/), which itself embraces the prevailing coding conventions in the JavaScript community. A terse, clean coding style is encouraged, free of unnecessary semi-colons to terminate statements, preferring lightweight arrow function expressions, and just two spaces for indentation.
 
 We've designed our linter to flag stylistic preferences as **warnings**, while **errors** are reserved only for anti-patterns that are common sources of bugs. For example, with this configuration ESLint will warn about the use of yoda syntax (comparisons where the literal value is on the left and the variable is on the right of the operator).
 
 ```js
-// ⚡WARNING: "Expected literal to be on the right side of ===."
+/* ⚡WARNING: "Expected literal to be on the right side of ===." */
 if ('red' === color) {
   // …
 }
@@ -18,8 +18,8 @@ if ('red' === color) {
 This is primarily a stylistic preference. "If the color is red" makes more sense than "if red is the color". But a counter-argument, in favor of using yoda syntax, is that it protects against logical errors where the equals sign is accidentally used for assignment (`=`) instead of comparison (`==` or `===`). But there are other checks in place for these mistakes, and they will be flagged as errors rather than warnings.
 
 ```js
-// ❗ERROR: "Expected a conditional expression and instead saw an assignment."
-// ❗ERROR: "Unexpected constant condition."
+/* ❗ERROR: "Expected a conditional expression and instead saw an assignment." */
+/* ❗ERROR: "Unexpected constant condition." */
 if (color = 'red') {
   // …
 }
@@ -28,7 +28,7 @@ if (color = 'red') {
 To remove both the errors and warnings from the linter output, you would need to refactor this logic as follows:
 
 ```js
-// ✅
+/* ✅ */
 if (color === 'red') {
   // …
 }
@@ -122,6 +122,27 @@ Of course, you MAY override and extend the imported rules, which you can do like
     ...rules.builtin,
     'no-unused-vars': 'warn',
   },
+}
+```
+
+### VS Code integration
+
+TODO
+
+```json
+{
+  // Settings for the ESLint extension.
+  // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+
+  // Enable support of the new flat file configuration format,
+  // `eslint.config.js`, available since ESLint v8.21.
+  "eslint.experimental.useFlatConfig": true,
+
+  // Enable ESLint as a code formatter.
+  "eslint.format.enable": true,
+
+  // Use ESLint to validate both JS and TS source files.
+  "eslint.validate": ["javascript", "typescript"],
 }
 ```
 
