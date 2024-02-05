@@ -10,10 +10,19 @@ The following documentation covers the development and maintenance of this packa
 
 A combination of automated and manual testing is recommended, before publishing package updates.
 
-////
-TODO: Add docs on using `npm add link:` to test config updates before shipping them.
-https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages
-////
+Run `npm run test` from the repository root to run the automated tests. The tests work as follows:
+
+* The test fixtures in the `test/_/fixtures/*` directories contain example code for each ESLint rule.
+* Each test fixture is linted using the ESLint configuration from the `src` directory.
+* The tests verify the output of the linter against the expected output.
+
+You can also manually install the updated ESLint configuration into another JavaScript/TypeScript project. The easiest way to do this is to use `npm link` from the other project, passing a relative path back to the `src` directory of this repository. Example:
+
+```sh
+npm install ../path/to/eslint-config/src
+```
+
+The package will be installed as a symlink in the `node_modules` directory of the other project, and therefore any changes made to the ESLint configuration will be updated in the other project immediately – no `npm update` required.
 
 === Publishing
 
