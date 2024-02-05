@@ -1,20 +1,37 @@
-= @hacksjs/eslint-config
+= kieranpotts-eslint-config
 
-This repository encapsulates the code and configuration for an ESLint configuration that is used to enforce consistent coding styles and conventions across the Hacks.js project. The configuration is shared with the wider community for the benefit of other projects that may wish to adopt the same default constraints.
-
-////
+This repository encapsulates the code and configuration for an ESLint configuration that I use to enforce consistent coding styles and conventions across my JavaScript/TypeScript projects.
 
 == Documentation
 
-The following documentation covers the development and maintenance of the packages built from this code repository. APIs and usage instructions are documented in the READMEs of each package, which are distributed via the https://www.npmjs.com/search?q=%40kieranpotts[NPM registry].
+The following documentation covers the development and maintenance of this package. For API documentation and other usage instructions, see the link:https://www.npmjs.com/package/kieranpotts-eslint-config[README of the published package] in the NPM registry.
 
+=== Testing
+
+A combination of automated and manual testing is recommended, before publishing package updates.
+
+////
 TODO: Add docs on using `npm add link:` to test config updates before shipping them.
+https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages
+////
 
-TODO: Write docs on `npm publish`.
+=== Publishing
 
+Publishing package updates to the NPM registry is currently a manual process. The following steps should be followed to publish a new version of the package:
+
+1. Change to the `src` directory.
+
+2. Manually update the version number in the `package.json` file. Review the other contents of the `src` directory. There is no build step, so the contents of the `src` directory are published as-is.
+
+3. Follow the instructions to authenticate your NPM account.
+
+For more guidance, see NPM's documentation on link:https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages[creating and publishing unscoped public packages].
+
+Review the package update at link:https://www.npmjs.com/package/kieranpotts-eslint-config[npmjs.com/package/kieranpotts-eslint-config.].
+
+////
 TODO: Write docs on source control workflow.
-
 ////
 
 ''''
-© Kieran Potts and contributors, link:./LICENSE.txt[MIT license]
+Copyright © 2020-present Kieran Potts and contributors, link:./LICENSE.txt[MIT license]

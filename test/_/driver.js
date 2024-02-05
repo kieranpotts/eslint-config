@@ -1,13 +1,9 @@
 // @ts-check
 
 /*
-
-TEST DRIVERS
-
 This module exports a function called `lint()`, which is a simple wrapper for
 ESLint's programmatic API and which we use in our test scripts to verify how
 our ESLint rules apply to different snippets of code.
-
 */
 
 import { resolve as resolvePath } from 'node:path'
@@ -86,7 +82,6 @@ const eslint_config = {
 const lint = async (file_path) => {
 
   /*
-
   This is the config for ESLint's programmatic API (`new ESLint()`),
   which is separate from the configuration loaded from "rc" files,
   `.eslintrc.* `.
@@ -98,7 +93,6 @@ const lint = async (file_path) => {
     to plugin implementations.
   - useEslintrc: We disable loading of external ESLint "rc" files, which
     means that only the configuration passed to `overrideConfig` will apply.
-
   */
 
   /** @type {ESLintOptions} */

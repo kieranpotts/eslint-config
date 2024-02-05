@@ -1,7 +1,7 @@
 {
-  "name": "@hacksjs/eslint-config",
-  "version": "0.0.0-alpha.0",
-  "description": "A shareable ESLint configuration for JavaScript projects.",
+  "name": "kieranpotts-eslint-config",
+  "version": "0.0.0-alpha.1",
+  "description": "A shareable ESLint configuration for JavaScript and TypeScript projects.",
   "keywords": [
     "eslint",
     "eslintconfig"
@@ -9,17 +9,16 @@
   "author": "Kieran Potts",
   "contributors": [],
   "license": "MIT",
-  "homepage": "https://www.npmjs.com/package/@hacksjs/eslint-config",
+  "homepage": "https://www.npmjs.com/package/kieranpotts-eslint-config",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hacksjs/eslint-config.git"
+    "url": "https://github.com/kieranpotts/eslint-config.git"
   },
   "bugs": {
-    "url": "https://github.com/hacksjs/eslint-config/issues"
+    "url": "https://github.com/kieranpotts/eslint-config/issues"
   },
   "files": [
     "package.json",
-    "CHANGELOG.md",
     "LICENSE.txt",
     "README.md",
     "lib/**/*"

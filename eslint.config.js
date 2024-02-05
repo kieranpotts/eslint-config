@@ -1,6 +1,6 @@
 /*
 ESLint configuration for this repository. The ESLint rules are imported
-directly from the source files for the `@hacksjs/eslint-config` package
+directly from the source files for the `kieranpotts-eslint-config` package
 maintained in this repository, thus the source files are linted against
 the same coding standards.
 

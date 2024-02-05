@@ -17,7 +17,7 @@ const max_executable_lines_per_function = 100
 const builtin = Object.freeze({
 
   /*
-  The following resources may be used as references for all available rules:
+  The following resources may be used as references for all available builtin rules:
 
   https://eslint.org/docs/rules/
   https://github.com/eslint/eslint/blob/main/packages/js/src/configs/eslint-all.js

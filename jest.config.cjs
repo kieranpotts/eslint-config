@@ -8,7 +8,7 @@ https://jestjs.io/docs/configuration
 /** @type {import('jest').Config} */
 const config = {
 
-  /* The file extensions used by our JavaScript modules. */
+  /* The file extensions used by JavaScript modules. */
   'moduleFileExtensions': [
     'js',
   ],
@@ -23,8 +23,8 @@ const config = {
   files. This happens dynamically at runtime, when the tests are run.
 
   Because Jest's built-in support for ECMAScript Modules is still
-  experimental (https://jestjs.io/docs/ecmascript-modules), we must use
-  Babel to transform our JavaScript code before the tests are run.
+  experimental (https://jestjs.io/docs/ecmascript-modules), it is necessary
+  to use Babel to transform JavaScript code before the tests are run.
 
   https://jestjs.io/docs/configuration
   https://jestjs.io/docs/code-transformation
