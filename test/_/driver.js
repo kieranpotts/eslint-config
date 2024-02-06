@@ -32,7 +32,6 @@ import { rules } from '../../src/lib/index.js'
 /** @typedef {import("eslint").ESLint.LintResult} LintResult */
 
 /*
-
 In ESLint v8, the configuration object that is passed to ESLint's programmatic
 API is still the "old" configuration format. This is expected to be fully
 replaced by the new flat-file configuration format in ESLint v9, at which
@@ -41,7 +40,6 @@ file, rather than duplicate it's configuration here.
 
 https://eslint.org/docs/latest/integrate/integration-tutorial
 https://eslint.org/docs/latest/use/configure/configuration-files
-
 */
 
 /** @type {LinterConfig} */

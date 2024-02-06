@@ -108,11 +108,11 @@ Use the following configuration as a template for your project's `eslint.config.
 ```js
 import { rules } from "kieranpotts-eslint-config"
 
-// OPTIONAL dependencies
+/* OPTIONAL dependencies */
 import globals from 'globals'
 import babelParser from '@babel/eslint-parser'
 
-// OPTIONAL plugins
+/* OPTIONAL plugins */
 // import importPlugin from 'eslint-plugin-import'
 // import nodePlugin from 'eslint-plugin-n'
 // import promisePlugin from 'eslint-plugin-promise'
@@ -147,11 +147,11 @@ export default [
     },
 
     'rules': {
-      ...rules.builtin,   // REQUIRED
-      // ...rules.imports,   // OPTIONAL
-      // ...rules.node,      // OPTIONAL
-      // ...rules.promises,  // OPTIONAL
-      // ...rules.security,  // OPTIONAL
+      ...rules.builtin,   /* REQUIRED */
+      // ...rules.imports,   /* OPTIONAL */
+      // ...rules.node,      /* OPTIONAL */
+      // ...rules.promises,  /* OPTIONAL */
+      // ...rules.security,  /* OPTIONAL */
     },
 
   },

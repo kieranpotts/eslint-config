@@ -1,21 +1,16 @@
 /*
-
-accessor-pairs
-==============
+https://eslint.org/docs/latest/rules/accessor-pairs
 
 If an object has a setter, it SHOULD have a corresponding getter for the
 same property. However, getters MAY exist without setters. The same rules
 apply to getters and setters defined on classes.
 
 See also `grouped-accessor-pairs`.
-
-https://eslint.org/docs/latest/rules/accessor-pairs
-
 */
 
 /* eslint-disable max-classes-per-file */
 
-// ✅
+/* ✅ */
 let dog = {
   set 'name' (value) {
     this.name = value
@@ -26,13 +21,13 @@ let dog = {
 }
 
 dog = {
-  // ⚡WARNING: "Getter is not present for setter 'name'."
+  /* ⚡WARNING: "Getter is not present for setter 'name'." */
   set 'name' (value) {
     this.name = value
   },
 }
 
-// ✅
+/* ✅ */
 dog = {}
 
 Object.defineProperty(
@@ -54,7 +49,7 @@ Object.defineProperty(
   dog,
   'name',
 
-  // ⚡WARNING: "Getter is not present in property descriptor."
+  /* ⚡WARNING: "Getter is not present in property descriptor." */
   {
     set (value) {
       this.name = value
@@ -62,7 +57,7 @@ Object.defineProperty(
   },
 )
 
-// ✅
+/* ✅ */
 class Dog {
 
   #breed
@@ -85,7 +80,7 @@ class Horse {
 
   #breed
 
-  // ⚡WARNING: "Getter is not present for class setter 'breed'."
+  /* ⚡WARNING: "Getter is not present for class setter 'breed'." */
   set 'breed' (value) {
     this.#breed  = value
   }
@@ -100,9 +95,9 @@ const bella = new Horse()
 
 bella.breed('arabian')
 
-// Getters may exist without setters.
+/* Getters may exist without setters. */
 
-// ✅
+/* ✅ */
 let cat = {
   get 'name' () {
     return this.name
@@ -110,7 +105,7 @@ let cat = {
 
 }
 
-// ✅
+/* ✅ */
 cat = {}
 
 Object.defineProperty(
@@ -123,7 +118,7 @@ Object.defineProperty(
   },
 )
 
-// ✅
+/* ✅ */
 class Cat {
 
   #breed
